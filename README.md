@@ -8,7 +8,7 @@ Assemble, Annotate and Analyze Microbial Genomes and Populations
 
 This is a 'work in progress' pipeline to assemble, annotate and analyze bacterial genomes for evidence of adaptation using a pangenome framework. No program installation information is provided but I will link to the programs that are used in this documentation. Some scripts are executable and I provide the documentation for their usage below. Others are still being developped but they are documented and I will summarize their application clearly. I'm happy to provide any information and clarify any questions about any of the steps or code. 
 
-# Assembly and Annotation
+## Assembly and Annotation
 
 The first step in any population analysis is to assemble, annotate and QA/QC the genomes. `assemble_annotate_ST.sh` is an executable program that takes a fastq file and the identifier that you would like to assign as its input. The fastqc file is evaluated by fastqc, trimmed for adapters and low quality reads in trimmomatic and assembled with SPAdes. The assembly is evaluated by Quast then annotated by Prokka. The final step in this program is to assign a *Vibrio parahaemolyticus* sequence type (ST) with SRTS2.
 
@@ -17,7 +17,7 @@ Usage
 sh assemble_annotate_ST.sh <filename.fastqc> <target identifier> 
 ```
 
-# Pangenome Analysis
+## Pangenome Analysis
 
 For pangenome analysis and the majority of analysis that follows I use the output files from [Roary](https://sanger-pathogens.github.io/Roary/). Roary is well documented, provides scripts and links to complementary programs for visualization and further pangenome analysis and very helpful output files. The standard input files for Roary are GFF3 files which I make in Prokka, but they also provide links and scripts for workinig with different input files.  
 
@@ -43,9 +43,9 @@ roary_plots.py name_of_your_newick_tree_file.tre gene_presence_absence.csv
 ```
 or navigating to a [Phandango website](http://jameshadfield.github.io/phandango/#/) where you can drag and drop your accessory genome tree file (.tre) and the gene_presence_absence.csv
 
-# Phylogenetic Analysis
+## Phylogenetic Analysis
 
-Though there are lots of reasons that phylogenetic analysis of bacterial populations can be misleading, I like to start here. I think it provides a basis to compare your study to other work and gives context to the downstream outcomes. 
+I like to start with phylogenetic analysis even though the results from bacterial populations can be hard to interpret (... a little wonky). It provides a basis to compare your study to other work and gives context to the downstream outcomes. 
 
 Roary provides a `.tre` file for the accessory genome. I use `SRST2_MLST.sh` to create a fasta file from the SRST2 ouput of the `assemble_annotate_ST.sh` and align the fasta file in mafft. I use [RAxML](https://cme.hits.org/exelixis/web/software/raxml/index.html) to make `tre` files from the core genome alignment made in Roary and the MLST alignment from SRST2 and mafft. `core_alignment.sh` provides basic scripts to run RAxML and recombination analysis in ClonalFrameML. These output can be visualized quickly in R with `ggtree` or in the gui [FigTree](http://tree.bio.ed.ac.uk/software/figtree/)   
 
