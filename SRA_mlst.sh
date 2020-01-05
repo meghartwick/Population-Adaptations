@@ -1,5 +1,8 @@
+##Query the SRA (short read archive)
+##Download SRA check ST, append SRA-ID and ST to new file
+##delete file, move on to the next file in the list
+
 #!/bin/bash
-#try=/mnt/lustre/jones/mhartwick/envir_GBE/trying/try.txt
 
 for i in $(cat try.txt);
 do
@@ -10,8 +13,8 @@ module purge
 module load anaconda/colsa
 source activate sra_wrapper
 
-#fastq-dump --split-files $dt
-parallel-fastq-dump --sra-id SRR748205 --threads 16 --outdir $dt/ --split-files --gzip
+fastq-dump --split-files $dt
+#parallel-fastq-dump --sra-id SRR748205 --threads 16 --outdir $dt/ --split-files --gzip
 
 conda deactivate
 source activate srst2-0.2.0
