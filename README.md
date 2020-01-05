@@ -53,15 +53,15 @@ If you have identified specific genes of interest that you would like to run thr
 
 A custom annotated VCF file can also be made from the alignment files you retained by using `-z`. `make_vcf.sh` will create concatenated alignments of your genes of interest for each gneome in the pangenome and produce an annoated VCF file. This is very helpful if you want to create whole genome phylogenies or look for evidence of selection in specific genes. This approach only uses coding regions so there are some definite drawbacks to this approach since it is excludes non-coding regions of the genome.    
 
-# Gene Presence and Absence
+## Gene Presence and Absence
 
 Simple gene presence and absence can provide useful basic summaries of the differences between genomes. If you are trying to identify differences between groups of genomes that may relate to meta variables, these can be investigated using univariate approaches (ANOVA, Student's-t) with corrections for multiple comparisons or multivariate analysis (PCoA, NMDS, MRPP, ISA) that are easily implemented in R with add-on packages `vegan` and `indicspecies`. I will be providing code for these analysis using user created meta data and the Roary `gene_presence_absence.Rtab`. 
 
-# Function and GO
+## Function and GO
 
 Grouping genes into categories of function can overcome some of the challenges of interpreting gene presence/absence data, especially in pangenome analysis where genes annotated with different identifiers act in the same way or when there are a large number of genes annotated as hypothetical proteins. Grouping these genes by function creates larger 'bins' in the data and may help resolve some of the noise from genomes that are highly diverse. The `GOandFunction.sh` provides the code to annotate the Roary `pangenome.fasta` with Uniprot identiers using a custom BLAST. Once the genes from the pangenome have Uniprot identifiers the corresponding GO ID can be linked to the Roary gene id and the `gene_presence_abscence.Rtab`. `GO.db` and `TopGO` in R can be used to explore the acyclic hierchical structure of GO terms. `TopGO` as well as the analysis from the  'Gene Presence and Absence' section can be used to look for evidence of functional enrichment in between categories of interest. 
 
-# Visualizing the Pangenome
+## Visualizing the Pangenome
 
 Once you have analyzed the patterns of SNPs, gene presence/absence and function in your pangenome, it is very helpful to be able to produce a visualization that can effectively summarize your findings. The code in `Heatmap.R` provides some steps to create a customizable graphic of the meta data, associated function or presence/absence and phylogenetic relationships in the genomes from your population. 
 
@@ -69,7 +69,7 @@ Once you have analyzed the patterns of SNPs, gene presence/absence and function 
 
 ![alt text](https://github.com/meghartwick/Population-Adaptations/blob/master/worldmap.png)
 
-Once you know something about your microbial population you might want to compare see how it compares to other strains or populations around the world.  There are a number of repositories that can be used to access bacterial genomes. I like to use [NCBI's Short Read Archive](https://www.ncbi.nlm.nih.gov/sra) (SRA) in order to integrate new genomes into my studies through my own assembly and annotation pipeline. For this study, I wanted to identify the isolates recovered outside of my study area that were of the same ST as isolates in my study. I queried that SRA and populated a list with the SRA identifiers that were *V. parahaemolyticus*. `SRA_mlst.sh` queries each SRA record in the list, determines its ST and appends the record a CSV. I chose the the reads of the isolates that matched my study and ran them through my assembly and annotation pipeline with `assembly_annotation_ST.sh`. 
+Once you know something about your microbial population you might want to see how it compares to other strains or populations. I like  to use [NCBI's Short Read Archive](https://www.ncbi.nlm.nih.gov/sra) (SRA) in order to integrate new genomes into my studies through my own assembly and annotation pipeline. For this study, I wanted to identify the isolates recovered outside of my study area that were of the same ST as isolates in my study. I queried that SRA and populated a list with the SRA identifiers that were *V. parahaemolyticus*. I used `SRA_mlst.sh` to ST each SRA record in the list and append its result to a CSV. I chose the the reads of the isolates that matched my study and ran them through my assembly and annotation pipeline with `assembly_annotation_ST.sh`. 
 
 To use `SRA_mlst.sh` create a tab-delimited list of SRA IDs as a text file
 
