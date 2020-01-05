@@ -1,5 +1,5 @@
 # Population-Adaptations
-Scripts to Assemble, Annotate and Analyze Microbial Genomes and Populations
+Assemble, Annotate and Analyze Microbial Genomes and Populations
 
 ![alt text](https://github.com/meghartwick/Population-Adaptations/blob/master/heatmapped.png)
 
