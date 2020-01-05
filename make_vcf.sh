@@ -1,3 +1,4 @@
+#This is a script to make an annotated vcf file from multiple individual alignment files created by Roary
 #!/bin/bash
 #make sure to make txt files named old and new to update names, these can be found in the g_p_a.csv
 module purge
