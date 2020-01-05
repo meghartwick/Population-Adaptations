@@ -87,11 +87,10 @@ goingterms<-as.dataframe(goterms)
 d <- cbind(names = rownames(goingterms), goingterms)
 
 
-!!THIS, 4.29.18
+# In R
+# Assess functional enrichment, account for acyclic heirarchical structure and make treemap 
 take uniprot annotations, list long, GO.db to sub function and GO out to ancestors, melt, remove na's merge with terms and table
 final[complete.cases(final), ]
-
-
 
 lapply(BP, as.character)-> BP[]
 BP$behavior <- apply(BP, 1, function(x)as.integer(any(grep("GO:0007610",x))))
