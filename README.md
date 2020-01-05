@@ -1,13 +1,13 @@
-# Population-Adaptations
+## Population-Adaptations
 Scripts to assemble, annotate and analyze microbial genomes for population adaptations
 
 ![alt text](https://github.com/meghartwick/Population-Adaptations/blob/master/heatmapped.png)
-
+*code for this pangenome graphic provide in `heatmap.R` and explained in # Visualizing the Pangenome*
 # Introduction
 
 This is a 'work in progress' pipeline to assemble, annotate and analyze bacterial genomes for evidence of adaptation using a pangenome framework. No program installation information is provided but I will link to the programs that are used in this documentation. Some scripts are executable and I provide the documentation for their usage below. Others are still being developped but they are documented and I will summarize their application clearly. I'm happy to provide any information and clarify any questions about any of the steps or code. 
 
-#Assembly and Annotation
+# Assembly and Annotation
 
 The first step in any population analysis is to assemble, annotate and QA/QC the genomes  
 `assemble_annotate_ST.sh` is a executable program that takes a fastqc file and the identifier that you would like to assign as its input. The fastqc file is evaluated by fastqc, trimmed for adapters and low quality reads in trimmomatic and assembled with SPAdes. The assembley is evaluated by Quast then annotated by Prokka. The final step in this program is to assign a *Vibrio parahaemolyticus* sequence type (ST) with SRTS2.
@@ -17,7 +17,7 @@ Usage
 sh assemble_annotate_ST.sh <filename.fastqc> <target identifier> 
 ```
 
-#Pangenome Analysis
+# Pangenome Analysis
 
 For pangenome analysis and the majority of analysis that follows I use the output files from [Roary](https://sanger-pathogens.github.io/Roary/). Roary is well documented, provides scripts and links to complementary programs for visualization and further pangenome analysis and very helpful output files. The standard input files for Roary are GFF3 files which I make in Prokka, but they also provide links and scripts for workinig with different input files.  
 
