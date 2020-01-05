@@ -10,7 +10,7 @@ This is a 'work in progress' pipeline to assemble, annotate and analyze bacteria
 
 # Assembly and Annotation
 
-The first step in any population analysis is to assemble, annotate and QA/QC the genomes. `assemble_annotate_ST.sh` is a executable program that takes a fastq file and the identifier that you would like to assign as its input. The fastqc file is evaluated by fastqc, trimmed for adapters and low quality reads in trimmomatic and assembled with SPAdes. The assembley is evaluated by Quast then annotated by Prokka. The final step in this program is to assign a *Vibrio parahaemolyticus* sequence type (ST) with SRTS2.
+The first step in any population analysis is to assemble, annotate and QA/QC the genomes. `assemble_annotate_ST.sh` is an executable program that takes a fastq file and the identifier that you would like to assign as its input. The fastqc file is evaluated by fastqc, trimmed for adapters and low quality reads in trimmomatic and assembled with SPAdes. The assembley is evaluated by Quast then annotated by Prokka. The final step in this program is to assign a *Vibrio parahaemolyticus* sequence type (ST) with SRTS2.
 
 Usage
 ```
@@ -31,9 +31,11 @@ To make the output files that I like to have, I use:
 ```
 roary -e -r -z *.gff
 ```
-`-e` uses PRANK instead of mafft to make a core alignment
-`-r` produces really helpful graphical summaries from R
-`-z` keeps the intermediate files that I find very useful
+```
+-e uses PRANK instead of mafft to make a core alignment
+-r produces really helpful graphical summaries from R
+-z keeps the intermediate files that I find very useful
+```
 
 Once Roary is complete you can immediately visualize your pangenome by using a python script 
 ```
@@ -65,6 +67,20 @@ Once you have analyzed the patterns of SNPs, gene presence/absence and function 
 
 ![alt text](https://github.com/meghartwick/Population-Adaptations/blob/master/worldmap.png)
 
+Once you know something about your microbial population you might want to compare see how it compares to other strains or populations around the world.  There are a number of repositories that can be used to access bacterial genomes. I like to use [NCBI's Short Read Archive](https://www.ncbi.nlm.nih.gov/sra) (SRA) in order to integrate new genomes into my studies through my own assembly and annotation pipeline. For this study, I wanted to identify the isolates recovered outside of my study area that were of the same ST as isolates in my study. I queried that SRA and populated a list with the SRA identifiers that were *V. parahaemolyticus*. `SRA_mlst.sh` queries each SRA record in the list, determines its ST and appends the record a CSV. I chose the the reads of the isolates that matched my study and ran them through my assembly and annotation pipeline with `assembly_annotation_ST.sh`. 
+
+To use `SRA_mlst.sh` create a tab-delimited list of SRA IDs as a text file
+
+```
+sh SRA_mlst.sh <filename.txt>
+```
+
+I made a quick map of the location of isolates that shared the same ST as isolates in my study with the code in `worldmap.R`
+
+
+# There's lots more to come and lots of cleaning left to go!
+I hope that you found something helpful if you came upon this page after wading through lots of keyword searches!
+Please reach out if you have any questions, suggestions or want to use the code provided here for your own microbial pangenome population analyses!
 
 
 
