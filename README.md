@@ -37,7 +37,7 @@ roary -e -r -z *.gff
 -z keeps the intermediate files that I find very useful
 ```
 
-Once Roary is complete you can immediately visualize your pangenome by using a python script 
+Once Roary is complete you can immediately visualize your pangenome by using their python script 
 ```
 roary_plots.py name_of_your_newick_tree_file.tre gene_presence_absence.csv
 ```
