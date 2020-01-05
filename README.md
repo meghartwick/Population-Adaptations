@@ -1,16 +1,16 @@
-## Population-Adaptations
-Scripts to assemble, annotate and analyze microbial genomes for population adaptations
+# Population-Adaptations
+Scripts to Assemble, Annotate and Analyze Microbial Genomes and Populations
 
 ![alt text](https://github.com/meghartwick/Population-Adaptations/blob/master/heatmapped.png)
-*code for this pangenome graphic provide in `heatmap.R` and explained in # Visualizing the Pangenome*
+
+*code for this graphic provide in `heatmap.R` and explained in 'Visualizing the Pangenome'*
 # Introduction
 
 This is a 'work in progress' pipeline to assemble, annotate and analyze bacterial genomes for evidence of adaptation using a pangenome framework. No program installation information is provided but I will link to the programs that are used in this documentation. Some scripts are executable and I provide the documentation for their usage below. Others are still being developped but they are documented and I will summarize their application clearly. I'm happy to provide any information and clarify any questions about any of the steps or code. 
 
 # Assembly and Annotation
 
-The first step in any population analysis is to assemble, annotate and QA/QC the genomes  
-`assemble_annotate_ST.sh` is a executable program that takes a fastqc file and the identifier that you would like to assign as its input. The fastqc file is evaluated by fastqc, trimmed for adapters and low quality reads in trimmomatic and assembled with SPAdes. The assembley is evaluated by Quast then annotated by Prokka. The final step in this program is to assign a *Vibrio parahaemolyticus* sequence type (ST) with SRTS2.
+The first step in any population analysis is to assemble, annotate and QA/QC the genomes. `assemble_annotate_ST.sh` is a executable program that takes a fastq file and the identifier that you would like to assign as its input. The fastqc file is evaluated by fastqc, trimmed for adapters and low quality reads in trimmomatic and assembled with SPAdes. The assembley is evaluated by Quast then annotated by Prokka. The final step in this program is to assign a *Vibrio parahaemolyticus* sequence type (ST) with SRTS2.
 
 Usage
 ```
