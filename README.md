@@ -69,7 +69,7 @@ Once you have analyzed the patterns of SNPs, gene presence/absence and function 
 
 ![alt text](https://github.com/meghartwick/Population-Adaptations/blob/master/worldmap.png)
 
-Once you know something about your microbial population you might want to see how it compares to other strains or populations. I like  to use [NCBI's Short Read Archive](https://www.ncbi.nlm.nih.gov/sra) (SRA) in order to integrate new genomes into my studies through my own assembly and annotation pipeline. For this study, I wanted to identify the isolates recovered outside of my study area that were of the same ST as isolates in my study. I queried that SRA and populated a list with the SRA identifiers that were *V. parahaemolyticus*. I used `SRA_mlst.sh` to ST each SRA record in the list and append its result to a CSV. I chose the the reads of the isolates that matched my study and ran them through my assembly and annotation pipeline with `assembly_annotation_ST.sh`. 
+Once you know something about your microbial population you might want to see how it compares to other strains or populations. I like  to use [NCBI's Short Read Archive](https://www.ncbi.nlm.nih.gov/sra) (SRA) in order to integrate new genomes into my studies through my own assembly and annotation pipeline. For this study, I wanted to identify the isolates recovered outside of my study area that were of the same ST as isolates in my study. I queried that SRA and populated a list with the SRA identifiers. I used `SRA_mlst.sh` to ST each SRA record in the list and append its result to a CSV. I chose the reads of isolates that matched my study and ran them through my assembly and annotation pipeline with `assembly_annotation_ST.sh`. 
 
 To use `SRA_mlst.sh` create a tab-delimited list of SRA IDs as a text file
 
