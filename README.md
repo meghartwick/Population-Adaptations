@@ -65,7 +65,7 @@ Grouping genes into categories of function can overcome some of the challenges o
 
 Once you have analyzed the patterns of SNPs, gene presence/absence and function in your pangenome, it is very helpful to be able to produce a visualization that can effectively summarize your findings. The code in `Heatmap.R` provides some steps to create a customizable graphic of the meta data, associated function or presence/absence and phylogenetic relationships in the genomes from your population. 
 
-# Comparing Populations
+## Comparing Populations
 
 ![alt text](https://github.com/meghartwick/Population-Adaptations/blob/master/worldmap.png)
 
