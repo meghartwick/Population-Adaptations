@@ -6,7 +6,7 @@ Assemble, Annotate and Analyze Microbial Genomes and Populations
 *code for this graphic provide in `heatmap.R` and explained in 'Visualizing the Pangenome'*
 # Introduction
 
-This is a 'work in progress' pipeline to assemble, annotate and analyze bacterial genomes for evidence of adaptation using a pangenome framework. No program installation information is provided but I will link to the programs that are used in this documentation. Some scripts are executable and I provide the documentation for their usage below. Others are still being developped but they are documented and I will summarize their application clearly. I'm happy to provide any information and clarify any questions about any of the steps or code. 
+This is a 'work in progress' pipeline to assemble, annotate and analyze bacterial genomes for evidence of adaptation using a pangenome framework. No program installation information is provided but I will link to the programs that are used in this documentation. Some scripts are executable and I provide the documentation for their usage below. Others are still being developed but they are documented and I will summarize their application clearly. I'm happy to provide any information and clarify any questions about any of the steps or code. 
 
 ## Assembly and Annotation
 
